@@ -1,0 +1,13 @@
+.md-table-content-recommend-download md-icon{
+  margin: auto;
+  background-repeat: no-repeat no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+  height: 30px;
+  width: 30px;
+}
+.md-table-content-recommend-download {
+  border-bottom: 1px solid rgb(230, 230, 230);
+
+}
