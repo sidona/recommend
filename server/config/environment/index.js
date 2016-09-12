@@ -41,6 +41,21 @@ var all = {
     }
   },
 
+  ldap:{
+    ldap_url:process.env.ldap_url,
+    ldap_bindDn:process.env.ldap_bindDn,
+    ldap_bindCredentials:process.env.ldap_bindCredentials,
+    ldap_searchBase:process.env.ldap_searchBase,
+    ldap_searchFilter:process.env.ldap_searchFilter,
+  },
+
+  email:{
+    host:process.env.host,
+    port:process.env.port,
+    email:process.env.email,
+    password:process.env.pass
+  }
+
 
 };
 

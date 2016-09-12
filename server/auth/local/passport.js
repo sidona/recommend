@@ -3,7 +3,6 @@ import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
 
 function localAuthenticate(User, email, password, done) {
-  console.log('User local',User)
   User.findOne({
     email: email.toLowerCase()
   }).exec()
@@ -28,7 +27,6 @@ function localAuthenticate(User, email, password, done) {
 }
 
 export function setup(User, config) {
-  console.log(User)
   passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password' // this is the virtual field on the model

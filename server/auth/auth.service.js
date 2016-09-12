@@ -33,7 +33,6 @@ export function isAuthenticated() {
             return res.status(401).end();
           }
           req.user = user;
-          console.log('req,user', req.user)
           next();
           return true;
 

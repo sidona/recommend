@@ -34,6 +34,14 @@ module.exports = function(grunt) {
       server: 'server',
       dist: 'dist'
     },
+    supervisor: {
+      target: {
+        script: "index.js",
+        options: {
+          args: [ "serve:dist" ]
+        }
+      }
+    },
     express: {
       options: {
         port: process.env.PORT || 9000
@@ -607,6 +615,8 @@ module.exports = function(grunt) {
       }
     },
   });
+
+  grunt.loadNpmTasks("grunt-supervisor");
 
   // Used for delaying livereload until after server has restarted
   grunt.registerTask('wait', function() {

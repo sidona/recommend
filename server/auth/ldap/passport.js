@@ -36,13 +36,13 @@ function loginSuccess(User,userLdap, done) {
 
 
 export function setup(User, config) {
-console.log("ceva",User);
+
   var server = {
-    url: 'ldap://pentalog.com:389',
-    bindDn: 'CN=,OU=DEV,OU=Users,OU=BRA,OU=PENTALOG,DC=pentalog,DC=com',
-    bindCredentials: '',
-    searchBase: 'dc=pentalog,dc=com',
-    searchFilter: '(sAMAccountName={{username}})'
+    url: config.ldap.ldap_url,
+    bindDn: config.ldap.ldap_bindDn,
+    bindCredentials: config.ldap.ldap_bindCredentials,
+    searchBase: config.ldap.ldap_searchBase,
+    searchFilter: config.ldap.ldap_searchFilter
   };
   passport.use(
     new LdapStrategy({ server: server },

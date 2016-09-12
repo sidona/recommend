@@ -41,8 +41,6 @@ router.post('/', controller.create);
 router.get('/send/sendEmail',sendEmail.sendEmail);
 
 router.post('/upload',upload,function (req,res) {
-  console.log(req);
-
   //save to database
   console.log(req);
   console.log(req.file.originalname);
