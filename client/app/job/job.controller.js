@@ -18,8 +18,8 @@
       this.currentPage = 10;
       this.viewby = 10;
       this.itemsPerPage = this.viewby;
-      this.lessText = "<";
-      this.moreText = ">";
+      this.lessText = "<<";
+      this.moreText = ">>";
       this.limit = 60;
       this.customFullscreen = '';
       this.isAdmin = Auth.isAdmin;
