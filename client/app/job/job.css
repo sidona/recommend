@@ -32,7 +32,7 @@ body{
 .md-table-content-index{
   border-bottom: 1px solid rgb(230,230,230) ;
   width: 20px;
- 
+
 }
 .icon-content{
   /*float: right;*/
@@ -176,4 +176,10 @@ body{font-size: 14px}
   margin-bottom: 5px;
   font-weight: normal;
   font-size: 14px;
+}
+.md-table-content-jobs span a{
+
+  font-size: x-large;
+  color: #0f0f0f;
+  font-weight: 800;
 }

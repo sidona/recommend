@@ -7,7 +7,7 @@
 
   class JobController {
 
-    constructor($http,$state,$mdDialog,$mdMedia,Auth) {
+    constructor($http,$state,$mdDialog,$mdMedia,$sce,Auth) {
       this.$http = $http;
       this.$state = $state;
       this.$mdDialog = $mdDialog;
@@ -18,11 +18,9 @@
       this.currentPage = 10;
       this.viewby = 10;
       this.itemsPerPage = this.viewby;
-      this.lessText = "less";
-      this.moreText = "more";
+      this.lessText = "<";
+      this.moreText = ">";
       this.limit = 60;
-      this.dotsClass = "toggle-dots-grey";
-      this.linkClass = "toggle-link-yellow";
       this.customFullscreen = '';
       this.isAdmin = Auth.isAdmin;
       this.search = {};

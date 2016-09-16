@@ -47,6 +47,7 @@ export default function(app) {
   app.use(compression());
   app.use(bodyParser.json());
   app.use(busboy());
+  app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(methodOverride());
   app.use(cookieParser());

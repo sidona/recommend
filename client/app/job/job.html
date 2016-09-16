@@ -48,7 +48,7 @@
           <td class="md-table-content-jobs">{{job.for_agency.join(',')}}</td>
           <td class="md-table-content-jobs">{{job.created_at | date: 'mediumDate'}}</td>
           <td class="md-table-content-jobs">
-            <div style="white-space: nowrap;max-width: 400px; outline: none;" hm-read-more hm-text="
+            <div class="content-read-more" style="white-space: nowrap;max-width: 400px; outline: none;" hm-read-more hm-text="
                   <div>{{job.description}}</div>
                   <div>
                   <p>Locuri disponibile: {{job.available_places}}</p>
@@ -58,10 +58,7 @@
                   </div>"
                  hm-limit="{{$ctrl.limit}}"
                  hm-more-text="{{$ctrl.moreText}}"
-                 hm-less-text="{{$ctrl.lessText}}"
-                 hm-dots-class="{{$ctrl.dotsClass}}"
-                 hm-link-class="{{$ctrl.linkClass}}"
-                 class="content-read-more">
+                 hm-less-text="{{$ctrl.lessText}}">
             </div>
             <div ng-if="commentsVisible" style="max-width: 400px;white-space: normal;">
               <md-button class="md-raised md-primary" ng-click="$ctrl.addComment(job._id, $event)">AdaugĂ un

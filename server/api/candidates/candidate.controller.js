@@ -91,8 +91,6 @@ export function myApplyJob(req, res) {
 }
 
 
-
-
 // Creates a new Candidate in the DB
 export function create(req, res) {
   return Candidate.create(req.body)
