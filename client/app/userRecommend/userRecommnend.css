@@ -13,3 +13,9 @@
   margin: auto;
   width: 30px;
 }
+.md-table-content-recommend span a{
+
+  font-size: medium;
+  color: #337ab7;
+  font-weight: 600;
+}

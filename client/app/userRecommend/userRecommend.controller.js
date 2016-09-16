@@ -14,11 +14,10 @@
       this.viewby = 10;
       this.itemsPerPage = this.viewby;
       this.candidate = this.Auth.getCurrentUser().name;
-      this.lessText = "less";
-      this.moreText = "more";
-      this.limit=50;
+      this.lessText = "<<";
+      this.moreText = ">>";
+      this.limit=100;
       this.candidates = [];
-      console.log(this.candidate)
     }
 
     $onInit() {

@@ -14,9 +14,9 @@
       this.currentPage = 10;
       this.viewby = 10;
       this.itemsPerPage = this.viewby;
-      this.lessText = "less";
-      this.moreText = "more";
-      this.limit = 25;
+      this.lessText = "<<";
+      this.moreText = ">>";
+      this.limit = 40;
       this.dotsClass = "toggle-dots-grey";
       this.linkClass = "toggle-link-yellow";
       this.customFullscreen = '';
