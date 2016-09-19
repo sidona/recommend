@@ -35,7 +35,9 @@
           {{candidate.for_agency}}
         </td>
         <td class="md-table-content-recommend-download">
-          <md-button ng-click="$ctrl.downloadFile(candidate.cv_file)" ><md-icon md-svg-src="assets/images/file.svg" style="color: rgb(80,127,153);"></md-icon></md-button>
+          <md-button ng-click="$ctrl.downloadFile(candidate.cv_file)" >
+            <md-icon md-svg-src="assets/images/file.svg" style="color: rgb(80,127,153);"></md-icon>
+          </md-button>
         </td>
         <td class="md-table-content-recommend">{{candidate.comment}}</td>
         <td class="md-table-content-recommend">{{candidate.status}}</td>

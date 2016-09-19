@@ -15,7 +15,9 @@ angular.module('recomNodeApp', ['recomNodeApp.auth',
   'ngFileUpload',
   'angularFileUpload',
   'ngMessages',
-  'md.data.table'
+  'md.data.table',
+  'ngAnimate',
+  'toastr'
 
 ])
   .config(function ($urlRouterProvider, $locationProvider,$compileProvider,$httpProvider) {
@@ -40,6 +42,7 @@ angular.module('recomNodeApp', ['recomNodeApp.auth',
   $mdThemingProvider.theme('default')
     .primaryPalette('neonRed');
 
-})
+});
+
 
 

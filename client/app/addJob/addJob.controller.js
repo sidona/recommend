@@ -7,9 +7,10 @@
 
   class AddJobController {
 
-    constructor($http,$state) {
+    constructor($http,$state,$mdToast) {
       this.$http = $http;
       this.$state=$state;
+      this.$mdToast=$mdToast;
       this.job = [];
     }
 
@@ -39,10 +40,17 @@
         this.job.contact_person='';
         this.job.description='';
       }
+      this.$mdToast.show(
+        this.$mdToast.simple()
+          .position('top')
+          .textContent('Oportunitatea nouă a fost adăugată cu succes! ')
+          .hideDelay(3000)
+      );
     }
     redirectJob(){
       this.$state.go('job');
     }
+
   }
 
   angular.module('recomNodeApp')

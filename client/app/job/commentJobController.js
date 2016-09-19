@@ -4,13 +4,14 @@
 'use strict';
 
 class CommentJobController {
-  constructor($http,Auth, $location, $mdDialog,$stateParams,$state,jobId) {
+  constructor($http,Auth, $location, $mdDialog,$stateParams,$state,$mdToast,jobId) {
     this.$http = $http;
     this.Auth=Auth;
     this.$location = $location;
     this.$mdDialog = $mdDialog;
     this.$stateParams=$stateParams;
     this.$state=$state;
+    this.$mdToast=$mdToast;
     this.jobId=jobId;
 
   }
@@ -38,12 +39,14 @@ class CommentJobController {
 
       });
       this.comment='';
-
-
     }
     this.$mdDialog.hide();
-
-
+    this.$mdToast.show(
+      this.$mdToast.simple()
+        .position('top')
+        .textContent('Comentariul tău a fost adăugat cu succes!')
+        .hideDelay(3000)
+    );
   };
 
 }

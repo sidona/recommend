@@ -4,19 +4,19 @@
 'use strict';
 
 class ApplyJobModalController {
-  constructor($http, Auth, $location, $mdDialog, $stateParams, jobId,jobTitle,jobAgency) {
+  constructor($http, Auth, $location, $mdDialog, $stateParams,$mdToast, jobId,jobTitle,jobAgency) {
     this.$http = $http;
     this.Auth = Auth;
     this.$location = $location;
     this.$mdDialog = $mdDialog;
     this.$stateParams = $stateParams;
+    this.$mdToast=$mdToast;
     this.jobId = jobId;
     this.jobTitle=jobTitle;
     this.jobAgency=jobAgency;
     this.resEmail={};
 
   }
-
 
   hide() {
     this.$mdDialog.hide();
@@ -48,10 +48,16 @@ class ApplyJobModalController {
           });
       });
       this.information = '';
-
-
     }
+
     this.$mdDialog.hide();
+
+    this.$mdToast.show(
+      this.$mdToast.simple()
+        .position('top')
+        .textContent('Aplicarea ta a fost trimisă cu succes! ')
+        .hideDelay(3000)
+    );
 
   };
 }

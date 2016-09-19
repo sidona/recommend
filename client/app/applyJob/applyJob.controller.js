@@ -4,10 +4,11 @@
 
   class ApplyJobController {
 
-    constructor($http, $state, $window, Auth, Upload) {
+    constructor($http, $state, $window,$mdToast, Auth, Upload) {
       this.$http = $http;
       this.$state = $state;
       this.$window = $window;
+      this.$mdToast=$mdToast;
       this.Auth = Auth;
       this.jobId = '';
       this.jobTitle='';
@@ -24,8 +25,6 @@
         this.jobTitle='fara oportunitate';
 
       }
-
-
 
     }
     $onInit() {
@@ -74,9 +73,14 @@
         this.experience = '';
         this.information = '';
         this.relation = '';
-        console.log('this.Auth.getCurrentUser', this.Auth.getCurrentUser().name);
-        console.log('this.$state.params.id', this.opportunityId);
 
+
+        this.$mdToast.show(
+          this.$mdToast.simple()
+            .position('top')
+            .textContent('Recomandarea ta a fost trimisă cu succes! ')
+            .hideDelay(3000)
+        );
       }
     }
 

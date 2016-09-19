@@ -16,7 +16,7 @@ body{
   text-align: left;
   font-size: 14px;
   font-weight: 700;
-  padding: 16px 16px 16px 0;
+  padding: 0 0px 16px;
   text-align: left;
 }
 .md-table-content {
@@ -182,4 +182,13 @@ body{font-size: 14px}
   font-size: medium;
   color: #337ab7;
   font-weight: 600;
+}
+md-toast{
+  left: 50%;
+  margin-left: -150px;
+}
+
+md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content{
+  background-color: rgb(80,127,153);;
+  color: white;
 }

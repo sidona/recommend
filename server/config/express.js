@@ -22,9 +22,7 @@ import session from 'express-session';
 import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
 var MongoStore = connectMongo(session);
-import fs from 'fs';
-import nodemailer from 'nodemailer';
-import smtpTransport from 'nodemailer-smtp-transport';
+
 
 export default function(app) {
   var env = app.get('env');

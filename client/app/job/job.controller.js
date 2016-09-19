@@ -38,8 +38,6 @@
     }
 
 
-
-
     recommend(jobId) {
     this.$state.includes("applyJob.opportunity", {id: jobId});
     this.$state.go('applyJob.opportunity', {id: jobId});

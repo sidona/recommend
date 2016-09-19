@@ -16,7 +16,7 @@
       this.candidate = this.Auth.getCurrentUser().name;
       this.lessText = "<<";
       this.moreText = ">>";
-      this.limit=100;
+      this.limit=50;
       this.candidates = [];
     }
 
