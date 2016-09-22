@@ -14,7 +14,6 @@
       this.jobTitle='';
       this.file = '';
       this.Upload = Upload;
-      this.alerts = [];
       if (this.$state.params.id) {
         this.jobId = this.$state.params.id;
         this.jobTitle=this.jobTitle.title;
