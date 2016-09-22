@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body bgcolor="#FFFFFF">
 
@@ -23,7 +23,9 @@
     </td>
     <td></td>
   </tr>
-</table><!-- /HEADER -->
+</table>
+<!-- /HEADER -->
+
 <!-- BODY -->
 <table class="body-wrap">
   <tr>
@@ -34,16 +36,9 @@
         <table>
           <tr>
             <td>
-              <h3>O noua recomandare a fost adaugata de catre
-                {sendEmail.name}
-              </h3>
-              <p> Nume: req.body.name</p>
-              <p> Competente: {{$skill}}</p>
+              <h3>O noua recomandare a fost adaugata de catre <%= recommend_by %></h3>
+              <p> Nume oportunitate: <%= title %></p>
 
-              <p> Agentie: <%= for_agency%></p>
-              <p> Mai multe detalii pot fi consultate pe platforma
-                <a href="http://localhost/recommendationapp/administration"> Penta Bring A Friend</a>
-              </p>
             </td>
           </tr>
         </table>

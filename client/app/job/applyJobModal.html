@@ -4,6 +4,7 @@
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h2>Aplic&#259; pentru oportunitatea {{vm.jobTitle}} </h2>
+        <md-button ng-show="vm.disabledJob()">disabled</md-button>
         <span flex></span>
       </div>
     </md-toolbar>
@@ -13,7 +14,7 @@
         <form name="dialogApply">
           <md-input-container class="md-block" flex-gt-xs>
             <label>Informa&#355;ii adi&#355;ionale</label>
-            <div ng-show="vm.disabledJob()">bla</div>
+
             <textarea name="userApplyDialog" required md-maxlength="512"
                       ng-model="vm.information"></textarea>
             <div ng-messages="applyJob.userApplyDialog.$error">

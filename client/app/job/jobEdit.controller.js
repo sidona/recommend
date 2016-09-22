@@ -35,6 +35,12 @@
           description: this.job.description,
           for_agency: [this.job.for_agency]
         }).then(() => {
+          this.$mdToast.show(
+            this.$mdToast.simple()
+              .position('top center')
+              .textContent('Oportunitatea a fost modificată cu succes! ')
+              .hideDelay(3000)
+          );
           this.$state.go('job');
         });
         this.job.title = '';
@@ -47,18 +53,10 @@
         this.job.description = '';
         this.job.for_agency = ''
       }
-      this.$mdToast.show(
-        this.$mdToast.simple()
-          .position('top center')
-          .textContent('Oportunitatea a fost modificată cu succes! ')
-          .hideDelay(3000)
-      );
     }
     redirectJob(){
       this.$state.go('job');
-
     }
-
   }
 
   angular.module('recomNodeApp')

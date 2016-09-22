@@ -7,11 +7,11 @@
 import _ from 'lodash';
 import mongoose from 'mongoose';
 import Candidate from './candidate.model';
-
+var sendEmail = require('../candidates/sendEmail/sendEmail');
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
-  return function(entity) {
+  return function (entity) {
     if (entity) {
       res.status(statusCode).json(entity);
     }
@@ -19,7 +19,7 @@ function respondWithResult(res, statusCode) {
 }
 
 function saveUpdates(updates) {
-  return function(entity) {
+  return function (entity) {
     var updated = _.merge(entity, updates);
     return updated.save()
       .then(updated => {
@@ -29,7 +29,7 @@ function saveUpdates(updates) {
 }
 
 function removeEntity(res) {
-  return function(entity) {
+  return function (entity) {
     if (entity) {
       return entity.remove()
         .then(() => {
@@ -40,7 +40,7 @@ function removeEntity(res) {
 }
 
 function handleEntityNotFound(res) {
-  return function(entity) {
+  return function (entity) {
     if (!entity) {
       res.status(404).end();
       return null;
@@ -51,24 +51,28 @@ function handleEntityNotFound(res) {
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
-  return function(err) {
+  return function (err) {
     res.status(statusCode).send(err);
   };
 }
+
 export function indexCandidates(req, res) {
   return Candidate.find().where('job').equals('fara').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
+
 // Gets a list of Candidates
 export function index(req, res) {
-  return Candidate.find({'job':{$ne:'fara'}}).populate('job').exec()
+  return Candidate.find({'job': {$ne: 'fara'}})
+    .populate('job')
+    .exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 export function searchByRecommend(req, res) {
-  return Candidate.find({'recommend_by':req.params.recommend_by,skill:{$ne:'intern'}})
+  return Candidate.find({'recommend_by': req.params.recommend_by, skill: {$ne: 'intern'}})
     .exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -76,14 +80,24 @@ export function searchByRecommend(req, res) {
 }
 
 export function searchByJob(req, res) {
-  return Candidate.find({'job':req.params.job})
+  return Candidate.find({'job': req.params.job})
     .exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
+
+export function searchJob(req, res) {
+  return Candidate.find({'job': job})
+    .exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 export function myApplyJob(req, res) {
-  return Candidate.find({'recommend_by':req.params.recommend_by}).where('skill').equals('intern').populate('job')
+  return Candidate.find({'recommend_by': req.params.recommend_by}).where('skill').equals('intern')
+    .populate('job')
     .exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -94,7 +108,10 @@ export function myApplyJob(req, res) {
 // Creates a new Candidate in the DB
 export function create(req, res) {
   return Candidate.create(req.body)
-    .then(respondWithResult(res, 201))
+    .then(function () {
+      respondWithResult(res, 201);
+      sendEmail.sendEmail(req, res);
+    })
     .catch(handleError(res));
 }
 // Gets a single Candidate from the DB

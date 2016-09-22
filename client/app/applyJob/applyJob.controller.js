@@ -58,11 +58,14 @@
 
 
         }).then(() => {
+          this.$mdToast.show(
+            this.$mdToast.simple()
+              .position('top')
+              .textContent('Recomandarea ta a fost trimisă cu succes! ')
+              .hideDelay(3000)
+          );
           this.$state.go('job');
-          this.$http.get('/api/candidates/send/sendEmail')
-            .then(res => {
-              this.resEmail = res.data;
-            });
+
         });
         this.full_name = '';
         this.skill = '';
@@ -74,13 +77,6 @@
         this.information = '';
         this.relation = '';
 
-
-        this.$mdToast.show(
-          this.$mdToast.simple()
-            .position('top')
-            .textContent('Recomandarea ta a fost trimisă cu succes! ')
-            .hideDelay(3000)
-        );
       }
     }
 

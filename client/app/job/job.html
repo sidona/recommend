@@ -85,7 +85,7 @@
           </td>
           <td class="md-table-content-jobs">
             <div class="button-content">
-              <md-button class="md-raised" ng-disabled="disabledJob(job._id)"
+              <md-button class="md-raised" ng-disabled="$ctrl.disabledJob(job._id)"
                          ng-click="$ctrl.applyJob(job._id,job.title,job.for_agency,$event)">
                 APLICĂ
               </md-button>

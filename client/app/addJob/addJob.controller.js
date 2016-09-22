@@ -28,6 +28,12 @@
           contact_person:this.job.contact_person,
           description:this.job.description
         }).then(() => {
+          this.$mdToast.show(
+            this.$mdToast.simple()
+              .position('top')
+              .textContent('Oportunitatea nouă a fost adăugată cu succes! ')
+              .hideDelay(3000)
+          );
           this.$state.go('job');
         });
         this.job.title = '';
@@ -40,17 +46,10 @@
         this.job.contact_person='';
         this.job.description='';
       }
-      this.$mdToast.show(
-        this.$mdToast.simple()
-          .position('top')
-          .textContent('Oportunitatea nouă a fost adăugată cu succes! ')
-          .hideDelay(3000)
-      );
     }
     redirectJob(){
       this.$state.go('job');
     }
-
   }
 
   angular.module('recomNodeApp')
