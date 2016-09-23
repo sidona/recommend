@@ -44,7 +44,13 @@
             &nbsp;&nbsp;</td>
           <td class="md-table-content-index"></td>
           <td class="md-table-content-jobs">{{job.title}}</td>
-          <td class="md-table-content-jobs">{{job.skill}}</td>
+          <td class="md-table-content-jobs">
+            <div class="content-read-more" style="white-space: nowrap;max-width: 400px; outline: none;" hm-read-more hm-text="{{job.skill}}"
+                 hm-limit="{{$ctrl.limitSkill}}"
+                 hm-more-text="{{$ctrl.moreText}}"
+                 hm-less-text="{{$ctrl.lessText}}">
+            </div>
+            </td>
           <td class="md-table-content-jobs">{{job.for_agency.join(',')}}</td>
           <td class="md-table-content-jobs">{{job.created_at | date: 'mediumDate'}}</td>
           <td class="md-table-content-jobs">

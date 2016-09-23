@@ -21,6 +21,7 @@
       this.lessText = "<<";
       this.moreText = ">>";
       this.limit = 60;
+      this.limitSkill=20;
       this.customFullscreen = '';
       this.isAdmin = Auth.isAdmin;
       this.candidate = Auth.getCurrentUser().name;
@@ -73,8 +74,8 @@
           jobTitle: jobTitle,
           jobAgency: jobAgency
         }
-      }).then(function () {
-        this.disabledJob(jobId);
+      }).then(()=>{
+        this.$state.reload();
       });
     }
 

@@ -2,11 +2,15 @@
 
   border-bottom: 1px solid rgb(230,230,230) ;
 }
+table.md-table td th{
+  padding: 5px;
+}
 
 .md-table-content-jobs-download{
   border-bottom: 1px solid rgb(230,230,230) ;
   text-align: center;
   margin:  auto;
+  padding: 5px;
   width:30px;
 }
 .md-table-content-jobs-download .icon-job-download md-icon{
@@ -17,5 +21,6 @@
   fill: currentColor;
   height: 30px;
   width: 30px;
+
 }
 

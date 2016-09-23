@@ -17,6 +17,7 @@
       this.lessText = "<<";
       this.moreText = ">>";
       this.limit = 40;
+      this.limitSkill=20;
       this.dotsClass = "toggle-dots-grey";
       this.linkClass = "toggle-link-yellow";
       this.customFullscreen = '';

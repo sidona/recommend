@@ -22,19 +22,16 @@
       else {
         this.jobId = "fara";
         this.jobTitle='fara oportunitate';
-
       }
-
     }
     $onInit() {
       if (this.$state.params.id) {
         this.$http.get('/api/jobs/' + this.jobId)
           .then(response => {
             this.jobTitle = response.data;
-
           });
       }else{
-        return null;
+        return this.jobTitle='fara';
       }
     }
 
@@ -60,7 +57,7 @@
           this.$mdToast.show(
             this.$mdToast.simple()
               .position('top')
-              .textContent('Recomandarea ta a fost trimisă cu succes! ')
+              .textContent(' Recomandarea ta a fost trimisă cu succes! ')
               .hideDelay(3000)
           );
           this.$state.go('job');

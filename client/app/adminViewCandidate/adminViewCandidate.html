@@ -29,7 +29,7 @@
       <table class="md-table">
         <thead>
         <tr>
-          <th flex="5" class="md-table-header"></th>
+          <th flex="5" class="md-table-header">#</th>
           <th flex="15" class="md-table-header">Nume candidat</th>
           <th flex="10" class="md-table-header">Oportunitatea</th>
           <th flex="10" class="md-table-header">Aptitudini</th>
@@ -48,7 +48,15 @@
           <td class="md-table-content-index">{{$index+1}}</td>
           <td class="md-table-content-jobs">{{candidate.full_name}}</td>
           <td class="md-table-content-jobs">{{candidate.job.title}}</td>
-          <td class="md-table-content-jobs">{{candidate.skill}}</td>
+          <td class="md-table-content-jobs">
+            <div hm-read-more hm-text="{{candidate.skill}}"
+                 hm-limit="{{$ctrl.limitSkill}}"
+                 hm-more-text="{{$ctrl.moreText}}"
+                 hm-less-text="{{$ctrl.lessText}}"
+                 hm-dots-class="{{$ctrl.dotsClass}}" hm-link-class="{{$ctrl.linkClass}}" class="content-read-more"
+                 style="max-width: 400px; outline: none">
+            </div>
+           </td>
           <td class="md-table-content-jobs"> <div hm-read-more hm-text="{{candidate.information}}" hm-limit="{{$ctrl.limit}}"
                                                   hm-more-text="{{$ctrl.moreText}}"
                                                   hm-less-text="{{$ctrl.lessText}}"

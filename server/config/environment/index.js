@@ -48,6 +48,7 @@ var all = {
     ldap_searchBase:process.env.ldap_searchBase,
     ldap_searchFilter:process.env.ldap_searchFilter,
   },
+
 };
 
 // Export the config object based on the NODE_ENV
