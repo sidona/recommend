@@ -44,8 +44,7 @@
         <tbody>
         <tr ng-repeat="candidate in $ctrl.candidates.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage)) | filter : {full_name : $ctrl.search.full_name, skill: $ctrl.search.skill, information: $ctrl.search.information, status: $ctrl.search.status}"
             class="md-table-content-row">
-
-          <td class="md-table-content-index">{{$index+1}}</td>
+          <td class="md-table-content-jobs">{{$index+1}}</td>
           <td class="md-table-content-jobs">{{candidate.full_name}}</td>
           <td class="md-table-content-jobs">{{candidate.job.title}}</td>
           <td class="md-table-content-jobs">

@@ -3,7 +3,6 @@
     <table class="md-table">
       <thead>
       <tr>
-        <th>&nbsp;</th>
         <th flex="5" class="md-table-header">#</th>
         <th flex="10" class="md-table-header">Nume candidat</th>
         <th flex="10" class="md-table-header">Oportunitatea</th>
@@ -17,7 +16,7 @@
       </thead>
       <tbody>
       <tr ng-repeat="candidate in $ctrl.candidates.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))" class="md-table-content-row">
-        <td>&nbsp;</td>
+
         <td class="md-table-content-recommend">{{$index+1}}</td>
         <td class="md-table-content-recommend">{{candidate.full_name}}</td>
         <td class="md-table-content-recommend">

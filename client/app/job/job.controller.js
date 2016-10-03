@@ -20,7 +20,7 @@
       this.itemsPerPage = this.viewby;
       this.lessText = "<<";
       this.moreText = ">>";
-      this.limit = 60;
+      this.limit = 40;
       this.limitSkill=20;
       this.customFullscreen = '';
       this.isAdmin = Auth.isAdmin;

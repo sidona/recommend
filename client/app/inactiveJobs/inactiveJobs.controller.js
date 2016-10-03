@@ -14,9 +14,9 @@
       this.currentPage = 10;
       this.viewby = 10;
       this.itemsPerPage = this.viewby;
-      this.lessText = "less";
-      this.moreText = "more";
-      this.limit=50;
+      this.lessText = "<<";
+      this.moreText = ">>";
+      this.limit=40;
       this.dotsClass = "toggle-dots-grey";
       this.linkClass = "toggle-link-yellow";
       this.customFullscreen='';
@@ -32,9 +32,8 @@
         .then(response => {
           this.inactiveJobs = response.data;
           this.totalItems = this.inactiveJobs.length;
-          console.log(this.inactiveJobs)
+          this.predicate='-t';
         });
-
     }
 
     pageChanged() {
