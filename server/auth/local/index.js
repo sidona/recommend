@@ -4,6 +4,7 @@
 import express from 'express';
 import passport from 'passport';
 import {signToken} from '../auth.service';
+var emailVerification=require('../emailVerification/emailVerification')
 
 var router = express.Router();
 
@@ -19,6 +20,8 @@ router.post('/', function(req, res, next) {
 
     var token = signToken(user._id, user.role);
     res.json({ token });
+    console.log('res',req.body.email)
+    emailVerification.send(req.body.email)
   })(req, res, next)
 });
 

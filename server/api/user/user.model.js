@@ -34,6 +34,10 @@ var UserSchema = new Schema({
       }
     }
   },
+  active: {
+    type:Boolean,
+    default:false
+  },
   provider: String,
   salt: String
 });
