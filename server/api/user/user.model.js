@@ -35,8 +35,7 @@ var UserSchema = new Schema({
     }
   },
   provider: String,
-  salt: String,
-  ldap: {}
+  salt: String
 });
 
 /**

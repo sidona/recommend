@@ -26,7 +26,6 @@
 
     }
 
-
     $onInit() {
       this.$http.get('/api/jobs/history')
         .then(response => {

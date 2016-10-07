@@ -21,11 +21,11 @@
        * @return {Promise}
        */
       login({
-        username,
+        email,
         password
       }, callback) {
-        return $http.post('/auth/ldap', {
-          username: username,
+        return $http.post('/auth/local', {
+          email: email,
           password: password
         })
           .then(res => {
