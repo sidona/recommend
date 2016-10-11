@@ -15,13 +15,13 @@ router.post('/', function(req, res, next) {
       return res.status(401).json(error);
     }
     if (!user) {
-      return res.status(404).json({message: 'Something went wrong, please try again.'});
+      return res.status(404).json({message: 'Te rugam incearca din nou!'});
     }
 
     var token = signToken(user._id, user.role);
     res.json({ token });
     console.log('res',req.body.email)
-    emailVerification.send(req.body.email)
+    //emailVerification.send(req.body.email)
   })(req, res, next)
 });
 

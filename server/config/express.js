@@ -50,7 +50,7 @@ export default function(app) {
   app.use(methodOverride());
   app.use(cookieParser());
   app.use(passport.initialize());
-  //app.use(passport.session());
+
 
 
   // Persist sessions with MongoStore / sequelizeStore
@@ -71,20 +71,20 @@ export default function(app) {
    * Lusca - express server security
    * https://github.com/krakenjs/lusca
    */
-  // if (env !== 'test' && !process.env.SAUCE_USERNAME) {
-  //   app.use(lusca({
-  //     csrf: {
-  //       angular: true
-  //     },
-  //     xframe: 'SAMEORIGIN',
-  //     hsts: {
-  //       maxAge: 31536000, //1 year, in seconds
-  //       includeSubDomains: true,
-  //       preload: true
-  //     },
-  //     xssProtection: true
-  //   }));
-  // }
+  if (env !== 'test' && !process.env.SAUCE_USERNAME) {
+    app.use(lusca({
+      csrf: {
+        angular: true
+      },
+      xframe: 'SAMEORIGIN',
+      hsts: {
+        maxAge: 31536000, //1 year, in seconds
+        includeSubDomains: true,
+        preload: true
+      },
+      xssProtection: true
+    }));
+  }
 
 
 

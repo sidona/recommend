@@ -9,9 +9,9 @@
       request(config) {
         config.headers = config.headers || {};
         config.headers['Accept'] = 'application/json;odata=verbose';
-        config.headers['Authorization']='Bearer 123904-affc-131239';
+        //config.headers['Authorization']='Bearer 123904-affc-131239';
         if ($cookies.get('token') && Util.isSameOrigin(config.url)) {
-          config.headers.Authorization = 'Bearer ' + $cookies.get('token');
+           config.headers.Authorization = 'Bearer ' + $cookies.get('token');
         }
         return config;
       },

@@ -3,9 +3,10 @@
 class SignupController {
   //end-non-standard
 
-  constructor(Auth, $state) {
+  constructor(Auth, $state,$mdToast) {
       this.Auth = Auth;
       this.$state = $state;
+    this.$mdToast=$mdToast;
     }
     //start-non-standard
 
@@ -21,7 +22,14 @@ class SignupController {
         })
         .then(() => {
           // Account created, redirect to home
-          this.$state.go('job');
+          this.$state.go('logout');
+          this.Auth.logout();
+          this.$mdToast.show(
+            this.$mdToast.simple()
+              .position('top')
+              .textContent('Te rugăm să îți verifici adresa de email pentru confirmare!')
+              .hideDelay(8000)
+          );
         })
         .catch(err => {
           err = err.data;

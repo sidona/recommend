@@ -4,6 +4,7 @@ import User from './user.model';
 import passport from 'passport';
 import config from '../../config/environment';
 import jwt from 'jsonwebtoken';
+var emailVerification=require('../../auth/emailVerification/emailVerification');
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
@@ -40,10 +41,13 @@ export function create(req, res, next) {
   newUser.role = 'user';
   newUser.save()
     .then(function(user) {
-      var token = jwt.sign({ _id: user._id }, config.secrets.session, {
+      var token = jwt.sign({ _id: user._id, role:user.role}, config.secrets.session, {
         expiresIn: 60 * 60 * 5
       });
       res.json({ token });
+      console.log('res.token',token)
+      console.log('body',req.body)
+      emailVerification.send(user)
     })
     .catch(validationError(res));
 }

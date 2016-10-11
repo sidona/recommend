@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 mongoose.Promise = require('bluebird');
 import {Schema} from 'mongoose';
 
-const authTypes = ['ldap'];
+const authTypes = ['local'];
 
 var UserSchema = new Schema({
   name: String,
@@ -78,7 +78,7 @@ UserSchema
       return true;
     }
     return email.length;
-  }, 'Email cannot be blank');
+  }, 'Introdu o adresă de e-mail');
 
 // Validate empty password
 UserSchema
@@ -88,7 +88,7 @@ UserSchema
       return true;
     }
     return password.length;
-  }, 'Password cannot be blank');
+  }, 'Introdu o parolă!');
 
 // Validate email is not taken
 UserSchema
@@ -111,7 +111,7 @@ UserSchema
       .catch(function(err) {
         throw err;
       });
-  }, 'The specified email address is already in use.');
+  }, 'Adresa de e-mail este deja folosită!');
 
 var validatePresenceOf = function(value) {
   return value && value.length;
@@ -129,7 +129,7 @@ UserSchema
 
     if (!validatePresenceOf(this.password)) {
       if (authTypes.indexOf(this.provider) === -1) {
-        return next(new Error('Invalid password'));
+        return next(new Error('Parolă invalida!'));
       } else {
         return next();
       }
