@@ -42,14 +42,20 @@ class NavbarController {
   ];
 
   //start-non-standard
-  constructor(Auth) {
+  constructor(Auth,$stateParams) {
+      this.$stateParams=$stateParams;
       this.isLoggedIn = Auth.isLoggedIn;
       this.isAdmin = Auth.isAdmin;
       this.getCurrentUser = Auth.getCurrentUser;
 
-
   }
 
+  showLogin(){
+    if(this.$stateParams==='register'){
+      return true;
+    }
+    console.log('state',this.$stateParams)
+  }
 
 
 

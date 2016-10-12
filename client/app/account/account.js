@@ -18,8 +18,12 @@ angular.module('recomNodeApp')
           $state.go('login');
         }
       })
-      .state('signup', {
-        url: '/signup',
+      .state('registerNewUserEmailSent',{
+        url:'/registerNewUserEmailSent',
+        templateUrl: 'app/account/signup/registerSuccess.html',
+      })
+      .state('register', {
+        url: '/register',
         templateUrl: 'app/account/signup/signup.html',
         controller: 'SignupController',
         controllerAs: 'vm'

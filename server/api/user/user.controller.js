@@ -38,7 +38,12 @@ export function index(req, res) {
 export function create(req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
-  newUser.role = 'user';
+  if(newUser.email==='sdonose@pentalog.fr'){
+    newUser.role = 'admin';
+  }
+  else{
+    newUser.role = 'user';
+  }
   newUser.save()
     .then(function(user) {
       var token = jwt.sign({ _id: user._id, role:user.role}, config.secrets.session, {

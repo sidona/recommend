@@ -15,20 +15,27 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
                                             'has-error': form.name.$invalid && vm.submitted }">
-          <label class="col-md-4 control-label">Nume</label>
+          <label class="col-md-4 control-label"></label>
           <div class="col-md-4">
-            <input type="text" name="name" class="form-control" ng-model="vm.user.name" required/>
+             <span class="block input-icon input-icon-right user-input">
+            <input type="text" name="name" class="form-control" ng-model="vm.user.name" required placeholder="Nume"/>
+                 <i class="icon-user"></i>
+               </span>
             <p class="help-block" ng-show="form.name.$error.required && vm.submitted">Numele este obligatoriu!</p>
           </div>
         </div>
 
         <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
                                             'has-error': form.email.$invalid && vm.submitted }">
-          <label class="col-md-4 control-label">Email</label>
+          <label class="col-md-4 control-label"></label>
           <div class="col-md-4">
-            <input type="text" name="email" class="form-control" ng-model="vm.user.email" required mongoose-error/>@pentalog.fr
-            <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
-              Introdu o adres&#259; valid&#259; de email!</p>
+              <span class="block input-icon input-icon-right email-input">
+            <input type="email" name="email" class="form-control" ng-model="vm.user.email"
+                   ng-pattern="/^[A-Za-z0-9._%+-]+@pentalog.fr$/" required placeholder="Email ex: guest@pentalog.fr" mongoose-error/>
+                <i class="icon-envelope" style="font-size: 20px"></i>
+                </span>
+            <p class="help-block" ng-show="form.email.$error.pattern ">
+              Introdu adresa de email aferent&#259; contului Pentalog!</p>
             <!--<p class="help-block" ng-show="form.email.$error.required && vm.submitted">Care este adresa de email?</p>-->
             <p class="help-block" ng-show="form.email.$error.mongoose">{{ vm.errors.email }}</p>
           </div>
@@ -36,17 +43,23 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
                                             'has-error': form.password.$invalid && vm.submitted }">
-          <label class="col-md-4 control-label">Parol&#259;</label>
+          <label class="col-md-4 control-label"></label>
           <div class="col-md-4">
-            <input type="password" name="password" class="form-control" ng-model="vm.user.password" ng-minlength="6" required ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"
-                   required mongoose-error/>
+
+              <span class="block input-icon input-icon-right password-input">
+            <input type="password" name="password" class="form-control" ng-model="vm.user.password" ng-minlength="6"
+                   required ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"
+                   required placeholder="Parolă" mongoose-error/>
+                  <i class="icon-lock"></i>
+                </span>
             <p class="help-block"
                ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
               Parola trebuie s&#259; con&#355;in&#259; minim 6 caractere!
             </p>
             <p class="help-block"
                ng-show="form.password.$error.pattern  && vm.submitted">
-              Parola trebuie s&#259; con&#355;in&#259; minim o liter&#259; mic&#259;, o liter&#259; mare &#351;i un caracter special!
+              Parola trebuie s&#259; con&#355;in&#259; minim o liter&#259; mic&#259;, o liter&#259; mare &#351;i un
+              caracter special!
             </p>
             <p class="help-block" ng-show="form.password.$error.mongoose">{{ vm.errors.password }}</p>
           </div>
@@ -54,10 +67,14 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
              'has-error': form.confirmPassword.$invalid && vm.submitted }">
-          <label class="col-md-4 control-label">Confirmare parol&#259;</label>
+          <label class="col-md-4 control-label"></label>
           <div class="col-md-4">
+             <span class="block input-icon input-icon-right password-input">
             <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
-                   match="vm.user.password" ng-minlength="6" required ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])" />
+                   match="vm.user.password" ng-minlength="6" required placeholder="Confirmare parolă"
+                   ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"/>
+               <i class="icon-lock"></i>
+               </span>
             <p class="help-block" ng-show="form.confirmPassword.$error.match && vm.submitted">
               Parola trebuie s&#259; se potriveasc&#259;.</p>
           </div>

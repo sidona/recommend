@@ -8,12 +8,12 @@
 import User from '../api/user/user.model';
 
 
- User.find({}).remove()
+ User.find({})
    .then(() => {
      User.create({
        provider: 'local',
-       name: 'Test User',
-       email: 'test@example.com',
+       name: 'admin',
+       email: 'sdonose@pentalog.fr',
        password: 'test'
      }, {
        provider: 'local',

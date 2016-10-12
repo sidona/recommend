@@ -17,7 +17,8 @@ angular.module('recomNodeApp', ['recomNodeApp.auth',
   'ngMessages',
   'md.data.table',
   'ngAnimate',
-  'toastr'
+  'toastr',
+  'ngPatternRestrict'
 
 ])
   .config(function ($urlRouterProvider, $locationProvider,$compileProvider,$httpProvider) {

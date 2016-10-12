@@ -21,4 +21,5 @@ module.exports = {
           process.env.OPENSHIFT_APP_NAME ||
           'mongodb://localhost/recomnode'
   }
+
 };
