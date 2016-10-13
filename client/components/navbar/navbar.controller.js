@@ -42,20 +42,29 @@ class NavbarController {
   ];
 
   //start-non-standard
-  constructor(Auth,$stateParams) {
-      this.$stateParams=$stateParams;
+  constructor(Auth,$location,$scope) {
+
       this.isLoggedIn = Auth.isLoggedIn;
+    console.log('this.isLoggedIn',this.isLoggedIn())
       this.isAdmin = Auth.isAdmin;
       this.getCurrentUser = Auth.getCurrentUser;
+      this.showLogin=false;
 
-  }
 
-  showLogin(){
-    if(this.$stateParams==='register'){
-      return true;
+      $scope.$watch(()=>{
+       return $location.path();
+      },(value)=>{
+        if(value==='/register'){
+          this.showLogin=true
+        }else{
+          this.showLogin=false
+        }
+        console.log(value);
+        console.log(this.showLogin)
+      })
     }
-    console.log('state',this.$stateParams)
-  }
+
+
 
 
 
