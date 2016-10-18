@@ -38,7 +38,7 @@ export function index(req, res) {
 export function create(req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
-  if(newUser.email==='sdonose@pentalog.fr'){
+  if(newUser.email==='sdonose@pentalog.fr'|| newUser.email==='gcretu@pentalog.fr' || newUser.email==='davram@pentalog.com' ){
     newUser.role = 'admin';
   }
   else{
@@ -50,8 +50,6 @@ export function create(req, res, next) {
         expiresIn: 60 * 60 * 5
       });
       res.json({ token });
-      console.log('res.token',token)
-      console.log('body',req.body)
       emailVerification.send(user)
     })
     .catch(validationError(res));
@@ -103,7 +101,7 @@ export function changePassword(req, res, next) {
           })
           .catch(validationError(res));
       } else {
-        return res.status(403).end();
+        return res.status(403).json({message:'Parola inițială  e gresită!'}).end();
       }
     });
 }

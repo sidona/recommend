@@ -27,7 +27,14 @@
           </div>
           </td>
         <td class="md-table-content-myApply">{{candidate.created_at | date: 'mediumDate'}}</td>
-        <td class="md-table-content-myApply">{{candidate.comment}}</td>
+        <td class="md-table-content-myApply">
+          <div hm-read-more hm-text="{{candidate.comment}}" hm-limit="{{$ctrl.limit}}"
+               hm-more-text="{{$ctrl.moreText}}"
+               hm-less-text="{{$ctrl.lessText}}"
+               hm-dots-class="{{$ctrl.dotsClass}}" hm-link-class="{{$ctrl.linkClass}}" class="content-read-more"
+               style="max-width: 400px; outline: none">
+          </div>
+          </td>
         <td class="md-table-content-myApply">{{candidate.status}}</td>
 
       </tr>

@@ -8,18 +8,20 @@ import smtpTransport from 'nodemailer-smtp-transport';
 import fs from 'fs';
 import _ from 'underscore';
 import lodash from 'lodash';
+import config from'../../../config/environment'
 
 var transporter = nodemailer.createTransport(smtpTransport({
-  host: 'smtp.pentalog.fr',
-  port: 587,
+  host: config.email.host,
+  port: config.email.port,
   auth: {
-
+    user: config.email.user,
+    pass: config.email.password
   }
 }));
 
 var mailOptions = {
-  from: '<sdonose@pentalog.fr>',
-  to: 'sidona_g@yahoo.com',
+  from: '<test.testpentalog@gmail.com>',
+  to: 'sdonose@pentalog.fr, gcretu@pentalog.fr',
   subject: ' Recomandare nouă',
   text: 'test'
 };
@@ -31,11 +33,11 @@ function getHtml() {
 }
 export function sendEmail(req, res) {
   var data = req.body;
+  console.log(data)
   var tpl = getHtml();
   if(data.job==='fara'){
     var options = lodash.merge(mailOptions, {
       html: tpl({
-        recommend_by:data.recommend_by,
         title:data.jobTitle,
         full_name: data.full_name
       })
@@ -44,7 +46,6 @@ export function sendEmail(req, res) {
   else{
     var options = lodash.merge(mailOptions, {
       html: tpl({
-        recommend_by:data.recommend_by,
         title:'pentru oportunitatea '+data.jobTitle,
         full_name: data.full_name
       })

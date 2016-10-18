@@ -39,6 +39,12 @@ var all = {
         safe: true
       }
     }
+  },
+  email:{
+    host:'smtp.gmail.com',
+    port:465,
+    user:'test.testpentalog@gmail.com',
+    password:'test.1234'
   }
 
 };

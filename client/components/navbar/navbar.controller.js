@@ -38,6 +38,10 @@ class NavbarController {
     {
       'title': 'Oportunităţi inactive',
       'state': 'inactiveJobs'
+    },
+    {
+      'title': 'Administrare useri',
+      'state': 'admin'
     }
   ];
 
@@ -45,7 +49,6 @@ class NavbarController {
   constructor(Auth,$location,$scope) {
 
       this.isLoggedIn = Auth.isLoggedIn;
-    console.log('this.isLoggedIn',this.isLoggedIn())
       this.isAdmin = Auth.isAdmin;
       this.getCurrentUser = Auth.getCurrentUser;
       this.showLogin=false;
@@ -54,19 +57,13 @@ class NavbarController {
       $scope.$watch(()=>{
        return $location.path();
       },(value)=>{
-        if(value==='/register'){
+        if(value==='/register' || value==='/registerNewUserEmailSent'){
           this.showLogin=true
         }else{
           this.showLogin=false
         }
-        console.log(value);
-        console.log(this.showLogin)
       })
     }
-
-
-
-
 
 }
 

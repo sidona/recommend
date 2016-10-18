@@ -4,6 +4,7 @@ class SettingsController {
 
   constructor(Auth) {
     this.Auth = Auth;
+    this.errors = {};
   }
 
   changePassword(form) {
@@ -14,10 +15,8 @@ class SettingsController {
         .then(() => {
           this.message = 'Parola a fost schimbată cu succes!';
         })
-        .catch(() => {
-          form.password.$setValidity('mongoose', false);
-          this.errors.other = 'Parolă incorectă!';
-          this.message = '';
+        .catch(err => {
+          this.errors.other = err.data.message;
         });
     }
   }

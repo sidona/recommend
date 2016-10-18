@@ -1,23 +1,22 @@
 <div>
   <div layout="row">
-    <div flex="20" >
+    <div flex="20">
       <form style="padding-left: 8%;">
         <md-input-container md-no-float class="md-block">
-          <!--<ng-md-icon icon="search"></ng-md-icon>-->
-
           <input ng-model="$ctrl.search.skill" placeholder="Caută după aptitudini">
         </md-input-container>
-    </div>
-    <div flex="20">
-      <md-input-container md-no-float class="md-block">
-
-        <input ng-model="$ctrl.search.for_agency" placeholder="Caută după agenţie">
-      </md-input-container>
-    </div>
-    <div flex="20">
-    </div>
-    <div flex="20">
       </form>
+    </div>
+    <div flex="20">
+      <form style="padding-left: 8%;">
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="$ctrl.search.for_agency" placeholder="Caută după agenţie">
+        </md-input-container>
+      </form>
+    </div>
+    <div flex="20">
+    </div>
+    <div flex="20">
     </div>
   </div>
 
@@ -47,28 +46,26 @@
           <td class="md-table-content-index"></td>
           <td class="md-table-content-jobs">{{job.title}}</td>
           <td class="md-table-content-jobs">
-            <div class="content-read-more" style="white-space: nowrap;max-width: 400px; outline: none;" hm-read-more hm-text="{{job.skill}}"
+            <div class="content-read-more" hm-read-more hm-text="{{job.skill}}"
                  hm-limit="{{$ctrl.limitSkill}}"
                  hm-more-text="{{$ctrl.moreText}}"
                  hm-less-text="{{$ctrl.lessText}}">
             </div>
-            </td>
+          </td>
           <td class="md-table-content-jobs">{{job.for_agency.join(',')}}</td>
           <td class="md-table-content-jobs">{{job.created_at | date: 'mediumDate'}}</td>
           <td class="md-table-content-jobs">
-            <div class="content-read-more" style="white-space: nowrap;max-width: 400px; outline: none;" hm-read-more hm-text="
+            <div class="content-read-more" hm-read-more hm-text="
                   <div>{{job.description}}</div>
-                  <div>
                   <p>Locuri disponibile: {{job.available_places}}</p>
                   <p>Experienta: {{job.experience}}<p>
                   <p>Persoana de contact: {{job.contact_person}}</p>
-                  <p>Client nou: {{job.client_type}}</p>
-                  </div>"
+                  <p>Client nou: {{job.client_type}}</p>"
                  hm-limit="{{$ctrl.limit}}"
                  hm-more-text="{{$ctrl.moreText}}"
                  hm-less-text="{{$ctrl.lessText}}">
             </div>
-            <div ng-if="commentsVisible" style="max-width: 400px;white-space: normal;">
+            <div class="comments-visible" ng-if="commentsVisible">
               <md-button class="md-raised md-primary" ng-click="$ctrl.addComment(job._id, $event)">AdaugĂ un
                 comentariu
               </md-button>
@@ -91,7 +88,7 @@
               <md-tooltip>Editare</md-tooltip>
             </div>
           </td>
-          <td class="md-table-content-jobs">
+          <td class="md-table-content-jobs-button">
             <div class="button-content">
               <md-button class="md-raised" ng-disabled="$ctrl.disabledJob(job._id)"
                          ng-click="$ctrl.applyJob(job._id,job.title,job.for_agency,$event)">

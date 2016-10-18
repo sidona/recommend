@@ -17,9 +17,10 @@
       this.lessText = "<<";
       this.moreText = ">>";
       this.limit=50;
-      this.candidate = this.Auth.getCurrentUser().name;
-      this.candidates = [];
+      this.candidate = this.Auth.getCurrentUser().email;
       console.log(this.candidate)
+      this.candidates = [];
+
     }
 
     $onInit() {

@@ -50,7 +50,8 @@
           recommend_by: this.Auth.getCurrentUser().name,
           recommend_for_job: this.jobId,
           job: this.jobId,
-          jobTitle:this.jobTitle.title
+          jobTitle:this.jobTitle.title,
+          emailRecommend:this.Auth.getCurrentUser().email
 
 
         }).then(() => {

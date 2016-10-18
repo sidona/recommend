@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function () {
 
   function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
     var safeCb = Util.safeCb;
@@ -60,13 +60,14 @@
        * @return {Promise}
        */
       createUser(user, callback) {
-        return User.save(user, function(data) {
+        return User.save(user, function (data) {
           $cookies.put('token', data.token);
           currentUser = User.get();
           return safeCb(callback)(null, user);
-        }, function(err) {
+        }, function (err) {
           Auth.logout();
-          return safeCb(callback)(err);
+          safeCb(callback)(err.data);
+          return $q.reject(err.data);
         })
           .$promise;
       },
@@ -85,10 +86,11 @@
         }, {
           oldPassword: oldPassword,
           newPassword: newPassword
-        }, function() {
+        }, function () {
           return safeCb(callback)(null);
-        }, function(err) {
-          return safeCb(callback)(err);
+        }, function (err) {
+          safeCb(callback)(err.data);
+          return $q.reject(err.data);
         })
           .$promise;
       },
@@ -145,7 +147,7 @@
        * @return {Bool|Promise}
        */
       hasRole(role, callback) {
-        var hasRole = function(r, h) {
+        var hasRole = function (r, h) {
           return userRoles.indexOf(r) >= userRoles.indexOf(h);
         };
 

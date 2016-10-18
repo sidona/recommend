@@ -29,10 +29,10 @@ var router = express.Router();
 router.get('/', controller.index);
 router.get('/without', controller.indexCandidates);
 router.get('/:id', controller.show);
-router.get('/recommend/:recommend_by', controller.searchByRecommend);
+router.get('/recommend/:emailRecommend', controller.searchByRecommend);
 router.get('/candidatesJob/:job', controller.searchByJob);
 router.get('/searchJob', controller.searchJob);
-router.get('/myApply/:recommend_by', controller.myApplyJob);
+router.get('/myApply/:emailRecommend', controller.myApplyJob);
 router.post('/', controller.create);
 
 router.post('/upload', upload, function (req, res) {

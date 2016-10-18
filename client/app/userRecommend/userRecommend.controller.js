@@ -13,7 +13,7 @@
       this.currentPage = 10;
       this.viewby = 10;
       this.itemsPerPage = this.viewby;
-      this.candidate = this.Auth.getCurrentUser().name;
+      this.candidate = this.Auth.getCurrentUser().email;
       this.lessText = "<<";
       this.moreText = ">>";
       this.limit=50;

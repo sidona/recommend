@@ -34,6 +34,7 @@ module.exports = function(config) {
       'client/bower_components/angular-material-data-table/dist/md-data-table.js',
       'client/bower_components/angular-toastr/dist/angular-toastr.tpls.js',
       'client/bower_components/ng-pattern-restrict/src/ng-pattern-restrict.js',
+      'client/bower_components/bootstrap/dist/js/bootstrap.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'client/app/app.js',

@@ -37,7 +37,8 @@ class ApplyJobModalController {
         cv_file: 'intern',
         job: this.jobId,
         for_agency: this.jobAgency,
-        jobTitle:this.jobTitle
+        jobTitle:this.jobTitle,
+        emailRecommend:this.Auth.getCurrentUser().email
       }).then(() => {
         this.$mdDialog.hide();
 

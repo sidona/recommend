@@ -5,7 +5,6 @@
 'use strict';
 
 import express from 'express';
-import _ from 'underscore';
 import favicon from 'serve-favicon';
 import morgan from 'morgan';
 import compression from 'compression';

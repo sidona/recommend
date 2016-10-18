@@ -21,7 +21,6 @@ router.post('/', function(req, res, next) {
     var token = signToken(user._id, user.role);
     res.json({ token });
     console.log('res',req.body.email)
-    //emailVerification.send(req.body.email)
   })(req, res, next)
 });
 

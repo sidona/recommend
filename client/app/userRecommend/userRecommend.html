@@ -29,7 +29,8 @@
                                                      hm-less-text="{{$ctrl.lessText}}"
                                                      hm-dots-class="{{$ctrl.dotsClass}}" hm-link-class="{{$ctrl.linkClass}}" class="content-read-more"
                                                      style="max-width: 400px; outline: none">
-        </div></td>
+        </div>
+        </td>
         <td class="md-table-content-recommend">
           {{candidate.for_agency}}
         </td>
@@ -38,7 +39,14 @@
             <md-icon md-svg-src="assets/images/file.svg" style="color: rgb(80,127,153);"></md-icon>
           </md-button>
         </td>
-        <td class="md-table-content-recommend">{{candidate.comment}}</td>
+        <td class="md-table-content-recommend">
+          <div hm-read-more hm-text="{{candidate.comment}}" hm-limit="{{$ctrl.limit}}"
+               hm-more-text="{{$ctrl.moreText}}"
+               hm-less-text="{{$ctrl.lessText}}"
+               hm-dots-class="{{$ctrl.dotsClass}}" hm-link-class="{{$ctrl.linkClass}}" class="content-read-more"
+               style="max-width: 400px; outline: none">
+          </div>
+          </td>
         <td class="md-table-content-recommend">{{candidate.status}}</td>
 
       </tr>

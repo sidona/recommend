@@ -31,7 +31,7 @@
           <div class="col-md-4">
               <span class="block input-icon input-icon-right email-input">
             <input type="email" name="email" class="form-control" ng-model="vm.user.email"
-                   ng-pattern="/^[A-Za-z0-9._%+-]+@pentalog.fr$/" required placeholder="Email ex: guest@pentalog.fr" mongoose-error/>
+                   ng-pattern="/^[A-Za-z0-9._%+-]+@pentalog+(.fr|.com)$/" required placeholder="Email ex: guest@pentalog.fr" mongoose-error/>
                 <i class="icon-envelope" style="font-size: 20px"></i>
                 </span>
             <p class="help-block" ng-show="form.email.$error.pattern ">
@@ -76,7 +76,7 @@
                <i class="icon-lock"></i>
                </span>
             <p class="help-block" ng-show="form.confirmPassword.$error.match && vm.submitted">
-              Parola trebuie s&#259; se potriveasc&#259;.</p>
+              Parola trebuie s&#259; se potriveasc&#259;!</p>
           </div>
         </div>
 

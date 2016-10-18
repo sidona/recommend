@@ -3,41 +3,46 @@
  */
 var _ = require('underscore');
 var fs = require('fs');
-var jwt = require('jwt-simple');
+//var jwt = require('jwt-simple');
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 import express from 'express';
 var router = express.Router();
 
 import User from '../../api/user/user.model';
+import config from '../../config/environment';
+import jwt from 'jsonwebtoken';
 
 var model = {
-  verifyUrl: 'http://localhost:9000/auth/verifyEmail?token=',
-  title: 'psJwt',
-  subTitle: 'Thanks for signing up!',
-  body: 'Please verify your email address by clicking the button below'
+  verifyUrl: '',
+  title: 'Activare cont OpporTube',
+  body: 'Pentru activarea contului, vă rugăm apăsați '
 };
 
-exports.send = function (email) {
+exports.send = function (user) {
   var payload = {
-    sub: email
+    sub: user.email
   };
-
-  var token = jwt.encode(payload, 'recomnode-secret');
+//expire in 5 h
+  var token = jwt.sign(payload, config.secrets.session, {
+    expiresIn: 60 * 60 * 5
+  });
+  console.log('token',token)
 
 
   var transporter = nodemailer.createTransport(smtpTransport({
-    host: 'smtp.pentalog.fr',
-    port: 587,
+    host: config.email.host,
+    port: config.email.port,
     auth: {
-
+      user: config.email.user,
+      pass: config.email.password
     }
   }));
 
   var mailOptions = {
-    from: '<sdonose@pentalog.fr>',
-    to: email,
-    subject: 'Verificare cont',
+    from: '<config.email.user>',
+    to: user.email,
+    subject: 'Activare cont OpporTube',
     html: getHtml(token)
   };
 
@@ -51,7 +56,14 @@ exports.send = function (email) {
 exports.handler = function (req, res) {
   var token = req.query.token;
 
-  var payload = jwt.decode(token, 'recomnode-secret');
+
+  var payload = jwt.verify(token, config.secrets.session);
+
+  jwt.verify(token, config.secrets.session, function(err, token) {
+  });
+
+
+
 
   var email = payload.sub;
 
@@ -81,14 +93,15 @@ function getHtml(token) {
 
   var template = _.template(html);
 
-  model.verifyUrl += token;
+  model.verifyUrl = 'http://localhost:9000/auth/verifyEmail?token='+token;
+
 
   return template(model);
 }
 
 function handleError(res) {
   return res.status(401).send({
-    message: 'Authentication failed, unable to verify email'
+    message: 'Autentificare eșuată, nu se poate verifica adresa de e-mail!'
   });
 }
 _.templateSettings = {

@@ -54,12 +54,12 @@
           <td class="md-table-content-jobs-download">
             <span class="icon-job-download" ng-click="$ctrl.downloadFile(candidate.cv_file)" > <md-icon md-svg-src="assets/images/file.svg" style="color: rgb(80,127,153);"></md-icon></span>
           </td>
-          <td class="md-table-content-jobs"><p style="font-family:Helvetica">{{candidate.recommend_by}}</p> in data de: {{candidate.created_at | date: 'mediumDate'}}</td>
+          <td class="md-table-content-jobs"><p style="font-family:Helvetica">{{candidate.recommend_by}}({{candidate.email}})</p> in data de: {{candidate.created_at | date: 'mediumDate'}}</td>
           <td class="md-table-content-jobs">
             <div layout-gt-xs="row">
               <md-input-container md-no-float flex-gt-xs>
-                <input type="text" required name="comment" ng-model="candidate.comment"
-                       rows="10">
+                <textarea type="text" required name="comment" ng-model="candidate.comment"
+                       rows="10" style="text-align: justify"></textarea>
               </md-input-container>
               <md-input-container flex-gt-xs>
                 <md-select ng-model="candidate.status" name="status" placeholder="{{candidate.status}}" >

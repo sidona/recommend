@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 mongoose.Promise = require('bluebird');
 import {Schema} from 'mongoose';
 
-const authTypes = ['local'];
+const authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 var UserSchema = new Schema({
   name: String,
@@ -111,7 +111,7 @@ UserSchema
       .catch(function(err) {
         throw err;
       });
-  }, 'Adresa de e-mail este deja folosită!');
+  }, 'Adresa de e-mail este deja utilizată!');
 
 var validatePresenceOf = function(value) {
   return value && value.length;

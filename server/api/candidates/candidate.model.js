@@ -23,6 +23,7 @@ var CndidateSchema = new mongoose.Schema({
   updated_at: {type: Date, default: Date.now},
   deleted_at: {type: Date, default: Date.now},
   jobTitle:{type:String},
+  emailRecommend:{type:String},
   job: {
       type: mongoose.Schema.Types.Mixed,
       ref: 'Job'

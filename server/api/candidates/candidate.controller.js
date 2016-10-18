@@ -72,7 +72,7 @@ export function index(req, res) {
 }
 
 export function searchByRecommend(req, res) {
-  return Candidate.find({'recommend_by': req.params.recommend_by, skill: {$ne: 'intern'}})
+  return Candidate.find({'emailRecommend': req.params.emailRecommend, skill: {$ne: 'intern'}})
     .exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -96,7 +96,7 @@ export function searchJob(req, res) {
 }
 
 export function myApplyJob(req, res) {
-  return Candidate.find({'recommend_by': req.params.recommend_by}).where('skill').equals('intern')
+  return Candidate.find({'emailRecommend': req.params.emailRecommend}).where('skill').equals('intern')
     .populate('job')
     .exec()
     .then(handleEntityNotFound(res))

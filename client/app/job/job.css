@@ -4,7 +4,6 @@ body {
 
 .md-table {
   min-width: 100%;
-
 }
 
 .md-table tbody tr:hover, .md-table tbody tr:focus {
@@ -80,9 +79,9 @@ body {
   display: inline;
 }
 
-.md-table-content-jobs .content-read-more {
-  max-width: 100%;
-}
+/*.md-table-content-jobs .content-read-more {*/
+  /*max-width: 100%;*/
+/*}*/
 
 .urgent {
   background-color: #C62828;
@@ -179,7 +178,7 @@ body {
 }
 
 .information {
-  padding: 0px;
+  padding: 0;
 }
 
 span.more-show-hide {
@@ -189,12 +188,6 @@ span.more-show-hide {
 .md-table-content-jobs p {
 
   font-weight: bold;
-  white-space: nowrap;
-
-}
-
-.md-table-content-jobs div {
-
   white-space: nowrap;
 
 }
@@ -239,4 +232,19 @@ md-toast {
 md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
   background-color: rgb(80, 127, 153);;
   color: white;
+}
+.content-read-more{
+  white-space: nowrap;
+  max-width: 400px;
+  outline: none;
+  text-align: justify;
+}
+.comments-visible{
+  white-space: normal;
+  text-align: justify;
+  max-width: 400px;
+}
+.md-table-content-jobs-button{
+  padding: 0;
+  border-bottom: 1px solid rgb(230, 230, 230);
 }
